@@ -74,10 +74,8 @@ func askQuestions(problems []quiz, correct int) int {
 }
 
 func startTimer() {
-	timeLimit := time.NewTimer(10 * time.Second)
-	// <-timeLimit.C
-	// fmt.Println("Time is over")
-	// os.Exit(1)
+	time.AfterFunc(10*time.Second, func() {
+		fmt.Println("Time is over")
+		os.Exit(1)
+	})
 }
-
-// Stuck at time limit
